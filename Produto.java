@@ -7,9 +7,8 @@ public class Produto {
     public String tamanho;
     public String cor;
     public String fabricante;
-    public ArrayList<Verdureira> verdureira;
     
-    public static ArrayList<Verdureira> verdureira = new ArrayList<Verdureira>();
+    public static ArrayList<Produto> produtos = new ArrayList<Produto>();
 
     public Produto (
         int id,
@@ -18,14 +17,25 @@ public class Produto {
         String cor, 
         String fabricante
     ) {
-        this.id = id;
+        this.id = this.getNextId();
         this.descricao = descricao;
         this.tamanho = tamanho;
         this.cor = cor;
         this.fabricante = fabricante;
 
-        verdureira.add(this);
+        produtos.add(this);
+        local.produtos.add(this);
     }
+    private int getNextId(){
+        int id = 0;
 
+        for(Produto produto : produtos){
+            if(produto.id > id) {
+                id = produto.id;
+            }
+        }
+
+        return id + 1;
+    }
     
 }
