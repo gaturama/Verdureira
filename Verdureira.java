@@ -61,10 +61,12 @@ public class Verdureira {
 
     public static void cadastrarFabricante(Scanner scanner){
         try{
+            System.out.println("Digite o ID do Fabricante: ");
+            int idFabricante = scanner.nextInt();
             System.out.println("Digite o nome do Fabricante: ");
             String nome = scanner.next();
 
-            Fabricante fabricante = new Fabricante(0, nome);
+            Fabricante fabricante = new Fabricante(idFabricante, nome);
             System.out.println(
                 "Id: " + fabricante.id + "\n"
                 + "Nome: " + fabricante.nome + "\n"
@@ -85,6 +87,8 @@ public class Verdureira {
 
     public static void cadastrarProduto(Scanner scanner){
        try{
+        System.out.println("Digite o ID do Produto: ");
+        int idProduto = scanner.nextInt();
         System.out.println("Digite a descrição do Produto: ");
         String descricao = scanner.next();
         System.out.println("Digite qual é o tamanho do Produto: ");
@@ -94,7 +98,7 @@ public class Verdureira {
         System.out.println("Digite qual é o fabricante do Produto:");
         String fabricante = scanner.next();
        
-        Produto produto = new Produto(0, descricao, tamanho, cor, fabricante);
+        Produto produto = new Produto(idProduto, descricao, tamanho, cor, fabricante);
         System.out.println(
                 "Id: " + produto.id + "\n"
                 + "Descrição: " + produto.descricao + "\n"
@@ -183,7 +187,7 @@ public class Verdureira {
                 System.out.println("Digite o ID do Produto: ");
                 int idProduto = scanner.nextInt();
 
-                Movimentacao movimentacao = new Movimentacao(idProduto, data, produto, local, tipo, tipo );
+                Movimentacao movimentacao = new Movimentacao(idMovimentacao, data, produto, local, tipo, tipo, idProduto);
                 System.out.println(
                     "Id: " + movimentacao.id +"\n"
                     + "Data: " + movimentacao.data + "\n"
