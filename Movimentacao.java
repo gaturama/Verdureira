@@ -30,6 +30,7 @@ public class Movimentacao{
         this.produtos = new ArrayList<>();
 
         movimentacoes.add(this);
+        
     }
     public static Movimentacao verificarId(int id) throws Exception {
         for (Movimentacao movimentacao: movimentacoes) {

@@ -4,7 +4,7 @@ public class Local {
     
     public int id;
     public String detalhes;
-    public String produto;
+    public int idproduto;
     public int quantidade;
     public ArrayList<Produto> produtos;
 
@@ -13,12 +13,12 @@ public class Local {
     public Local(
         int id, 
         String detalhes,
-        String produto,
+        int idproduto,
         int quantidade
     ){
         this.id = this.getNextId();
         this.detalhes = detalhes;
-        this.produto = produto;
+        this.idproduto = idproduto;
         this.quantidade = quantidade;
         this.produtos = new ArrayList<>();
 

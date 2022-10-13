@@ -15,7 +15,7 @@ public class Produto {
         String descricao,
         String tamanho,
         String cor, 
-        String fabricante
+        int idfabricante
     ) {
         this.id = this.getNextId();
         this.descricao = descricao;

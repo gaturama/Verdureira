@@ -96,9 +96,9 @@ public class Verdureira {
         System.out.println("Digite qual é a cor do Produto: ");
         String cor = scanner.next();
         System.out.println("Digite qual é o fabricante do Produto:");
-        String fabricante = scanner.next();
+        int idfabricante = scanner.nextInt();
        
-        Produto produto = new Produto(idProduto, descricao, tamanho, cor, fabricante);
+        Produto produto = new Produto(idProduto, descricao, tamanho, cor, idfabricante);
         System.out.println(
                 "Id: " + produto.id + "\n"
                 + "Descrição: " + produto.descricao + "\n"
@@ -128,15 +128,15 @@ public class Verdureira {
             System.out.println("Digite os detalhes do Local de Estoque: ");
             String detalhes= scanner.next();
             System.out.println("Digite qual produto tem no Local de Estoque: ");
-            String produto = scanner.next();
+            int idproduto = scanner.nextInt();
             System.out.println("Digite qual a quantidade de produtos no Local de Estoque: ");
             int quantidade = scanner.nextInt();
 
-         Local local = new Local(idLocal, detalhes, produto, quantidade);
+         Local local = new Local(idLocal, detalhes, idproduto, quantidade);
          System.out.println(
             "Id: " + local.id + "\n"
             + "Detalhes: " + local.detalhes + "\n"
-            + "Produto: " + local.produto + "\n"
+            + "Produto: " + local.idproduto + "\n"
             + "Quantidade: " + local.quantidade + "\n"
         );
         }catch(Exception e){
@@ -149,7 +149,7 @@ public class Verdureira {
             System.out.println(
                 "Id: " + local.id + "\n"
                 + "Detalhes: " + local.detalhes + "\n"
-                + "Produto: " + local.produto + "\n"
+                + "Produto: " + local.idproduto + "\n"
                 + "Quantidade: " + local.quantidade + "\n"
             );
         }
