@@ -10,9 +10,13 @@ public class Verdureira {
             System.out.println("==========================================");
             System.out.println("Digite a operação desejada: ");
             System.out.println("1 - Cadastro do Fabricante: ");
-            System.err.println("2 - Cadastrar Produto: ");
-            System.out.println("3 - Cadastrar o Local de Estoque: ");
-            System.out.println("4 - Cadastrar Movimentação do Estoque: ");
+            System.out.println("2 - Listar Fabricante: ");
+            System.err.println("3 - Cadastrar Produto: ");
+            System.out.println("4 - Listar Produto: ");
+            System.out.println("5 - Cadastrar o Local de Estoque: ");
+            System.out.println("6 - Listar Local de Estoque: ");
+            System.out.println("7 - Cadastrar Movimentação do Estoque: ");
+            System.out.println("8 - Listar Movimentação de Estoque:  ");
             System.out.println("==========================================");
         
         try{
@@ -36,7 +40,7 @@ public class Verdureira {
                     break;
                 case 6:
                     listarLocal();
-                    breal;    
+                    break;    
                 case 7:
                     cadastrarMovimentacao(scanner);
                     break;
@@ -60,7 +64,11 @@ public class Verdureira {
             System.out.println("Digite o nome do Fabricante: ");
             String nome = scanner.next();
 
-            new Fabricante(nome);
+            Fabricante fabricante = new Fabricante(0, nome);
+            System.out.println(
+                "Id: " + fabricante.id + "\n"
+                + "Nome: " + fabricante.nome + "\n"
+            );
         }catch (Exception e) {
             System.out.println("Erro ao cadastrar o Fabricante!");
         }
@@ -79,10 +87,130 @@ public class Verdureira {
        try{
         System.out.println("Digite a descrição do Produto: ");
         String descricao = scanner.next();
-        System.out.println("Qual o tamanho do Produto?: ");
+        System.out.println("Digite qual é o tamanho do Produto: ");
         String tamanho = scanner.next();
+        System.out.println("Digite qual é a cor do Produto: ");
+        String cor = scanner.next();
+        System.out.println("Digite qual é o fabricante do Produto:");
+        String fabricante = scanner.next();
+       
+        Produto produto = new Produto(0, descricao, tamanho, cor, fabricante);
+        System.out.println(
+                "Id: " + produto.id + "\n"
+                + "Descrição: " + produto.descricao + "\n"
+                + "Cor: " + produto.cor + "\n"
+                + "Fabricante: " + produto.fabricantes + "\n"
+            );
+        }catch (Exception e){
+            System.out.println("Erro ao cadastrar o Produto!");
+        }
        }
 
+       public static void listarProduto(){
+        for(Produto produto : Produto.produtos){
+            System.out.println(
+                "Id: " + produto.id + "\n"
+                + "Descrição: " + produto.descricao + "\n"
+                + "Cor: " + produto.cor + "\n"
+                + "Fabricante: " + produto.fabricantes + "\n"
+            );
+        }
+       }
+
+       public static void cadastrarLocal(Scanner scanner){
+        try{
+            System.out.println("Digite o ID do Local de Estoque: ");
+            int idLocal = scanner.nextInt();
+            System.out.println("Digite os detalhes do Local de Estoque: ");
+            String detalhes= scanner.next();
+            System.out.println("Digite qual produto tem no Local de Estoque: ");
+            String produto = scanner.next();
+            System.out.println("Digite qual a quantidade de produtos no Local de Estoque: ");
+            int quantidade = scanner.nextInt();
+
+         Local local = new Local(idLocal, detalhes, produto, quantidade);
+         System.out.println(
+            "Id: " + local.id + "\n"
+            + "Detalhes: " + local.detalhes + "\n"
+            + "Produto: " + local.produto + "\n"
+            + "Quantidade: " + local.quantidade + "\n"
+        );
+        }catch(Exception e){
+            System.out.println("Erro ao cadastrar o Local de Estoque!");
+        }
+       }
+
+       public static void listarLocal(){
+        for(Local local : Local.locais){
+            System.out.println(
+                "Id: " + local.id + "\n"
+                + "Detalhes: " + local.detalhes + "\n"
+                + "Produto: " + local.produto + "\n"
+                + "Quantidade: " + local.quantidade + "\n"
+            );
+        }
+       }
+
+       public static void cadastrarMovimentacao(Scanner scanner){
+        try{
+            System.out.println("Digite o ID da Movimentação: ");
+            int idMovimentacao = scanner.nextInt();
+            System.out.println("Digite a data da Movimentação: ");
+            String data = scanner.next();
+            System.out.println("Digite o produto da Movimentação: ");
+            String produto = scanner.next();
+            System.out.println("Digite o local da Movimentação: ");
+            String local = scanner.next();
+            
+            System.out.println("Digite o tipo da Movimentação: ");
+            String tipo = scanner.next();
+
+            for(int i = 0; i < tipo; i++){
+                switch(tipo){
+                    case "E":
+                        tipo = "Entrada";
+                        break;
+                    case "S":
+                        tipo = "Saída";
+                        break;
+
+            System.out.println("Digite a quantidade de Movimentações: "); 
+            int quantidade = scanner.nextInt();
+
+                    default:
+                    throw new Exception("Movimentação Inválida!!");        
+                }
+                System.out.println("Digite o ID do Produto: ");
+                int idProduto = scanner.nextInt();
+
+                Movimentacao movimentacao = new Movimentacao(idProduto, data, produto, local, tipo, tipo );
+                System.out.println(
+                    "Id: " + movimentacao.id +"\n"
+                    + "Data: " + movimentacao.data + "\n"
+                    + "Produto: " + movimentacao.produto + "\n"
+                    + "Local: " + movimentacao.local + "\n"
+                    + "Tipo: " + movimentacao.tipo + "\n"
+                    + "Quantidade: " + movimentacao.quantidade + "\n"
+                );
+                
+            }
+            
+        }catch (Exception e){
+            System.out.println("Erro ao cadastrar a Movimentação");
+        }
+        }
+
+       public static void listarMovimentacao(){
+        for(Movimentacao movimentacao : Movimentacao.movimentacoes){
+            System.out.println(
+                "Id: " + movimentacao.id +"\n"
+                + "Data: " + movimentacao.data + "\n"
+                + "Produto: " + movimentacao.produto + "\n"
+                + "Local: " + movimentacao.local + "\n"
+                + "Tipo: " + movimentacao.tipo + "\n"
+            );
         }
     }
+}
+    
 

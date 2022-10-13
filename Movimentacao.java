@@ -18,17 +18,26 @@ public class Movimentacao{
         String produto,
         String local,
         String tipo,
-        String quantidade
+        String tipo2,
+        int quantidade
     ){
         this.id = this.getNextId();
         this.data = data;
         this.local = local;
         this.tipo = tipo;
+        this.tipo = tipo2;
         this.quantidade = quantidade;
         this.produtos = new ArrayList<>();
 
         movimentacoes.add(this);
-    
+    }
+    public static Movimentacao verificarId(int id) throws Exception {
+        for (Movimentacao movimentacao: movimentacoes) {
+             if (movimentacao.id == id) {
+                return movimentacao;
+            }
+        }
+        throw new Exception("Movimentação não existe");
     }
     private int getNextId() {
         int id = 0;

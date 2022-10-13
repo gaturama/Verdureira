@@ -23,8 +23,16 @@ public class Local {
         this.produtos = new ArrayList<>();
 
         locais.add(this);
-       
     }
+     public static Local verificarId(int id) throws Exception{
+        for(Local local : locais){
+            if(local.id == id) {
+                return local;
+            }
+        }
+        throw new Exception("Local não existe");
+     }   
+
     private int getNextId() {
         int id = 0;
 

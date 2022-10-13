@@ -28,7 +28,7 @@ public class Fabricante {
         throw new Exception ("Este fabricante não existe");
         }
 
-    private int getNextId(){
+    private int getNextId() {
         int id = 0;
 
         for(Fabricante fabricante : fabricantes) {

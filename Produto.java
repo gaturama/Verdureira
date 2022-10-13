@@ -6,7 +6,7 @@ public class Produto {
     public String descricao;
     public String tamanho;
     public String cor;
-    public String fabricante;
+    public ArrayList<Fabricante> fabricantes;
     
     public static ArrayList<Produto> produtos = new ArrayList<Produto>();
 
@@ -21,10 +21,18 @@ public class Produto {
         this.descricao = descricao;
         this.tamanho = tamanho;
         this.cor = cor;
-        this.fabricante = fabricante;
+        this.fabricantes = new ArrayList<>();
 
         produtos.add(this);
-        local.produtos.add(this);
+        
+    }
+    public static Produto verificarId(int id) throws Exception{
+        for(Produto produto : produtos){
+            if(produto.id == id){
+                return produto;
+            }
+        }
+        throw new Exception("Produto não existe");
     }
     private int getNextId(){
         int id = 0;
