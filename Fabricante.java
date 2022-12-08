@@ -4,19 +4,31 @@ public class Fabricante {
     
     public int id;
     public String nome;
-    public ArrayList<Produto> produtos;
+    Produto produto;
 
     public static ArrayList<Fabricante> fabricantes = new ArrayList<Fabricante>();
 
     public Fabricante(
         int id, 
-        String nome
+        String nome,
+        Produto produto
     ) {
         this.id = id;
         this.nome = nome;
-        this.produtos = new ArrayList<Produto>();
 
         fabricantes.add(this);
+    }
+    public int getId(){
+        return id;
+    }
+    public void setId(int id){
+        this.id = id;
+    }
+    public String getNome(){
+        return nome;
+    }
+    public void setNome(String nome){
+         this.nome = nome;
     }
 
     public static Fabricante verificarId(int id) throws Exception {
@@ -28,15 +40,15 @@ public class Fabricante {
         throw new Exception ("Este fabricante não existe");
         }
 
-    private int getNextId() {
-        int id = 0;
-
-        for(Fabricante fabricante : fabricantes) {
-            if( fabricante.id > id) {
-                id = fabricante.id;
-            }
-        }
-
-        return id + 1;
+   public static removeFabricante(int id) throws Exception{
+       Fabricante fabricante = getFabricante(id);
+       fabricantes.remove(fabricante);
+    }
+    
+    @Override
+    public String toString(){
+        return "ID: " + id + "\n"
+            + "Nome: " + nome + "\n"
+            + "Produto: " + this.idProduto + "\n";
     }
 }
