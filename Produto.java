@@ -6,7 +6,7 @@ public class Produto {
     public String descricao;
     public String tamanho;
     public String cor;
-    public ArrayList<Fabricante> fabricantes;
+    Fabricante fabricante
     
     public static ArrayList<Produto> produtos = new ArrayList<Produto>();
 
@@ -15,17 +15,42 @@ public class Produto {
         String descricao,
         String tamanho,
         String cor, 
-        int idfabricante
+        Fabricante fabricante
     ) {
         this.id = this.getNextId();
         this.descricao = descricao;
         this.tamanho = tamanho;
         this.cor = cor;
-        this.fabricantes = new ArrayList<>();
 
         produtos.add(this);
-        
+       }
+    
+    public int getId(){
+        return id;
     }
+    public void setId(int id){
+        this.id = id;
+    }
+    public String getDescricao(){
+        return descricao;
+    }
+    public void setDescricao(String descricao){
+        this.descricao = descricao;
+    }
+    public String getTamanho(){
+        return tamanho;
+    }
+    public void setTamanho(String tamanho){
+        this.tamanho = tamanho;
+    }        
+    public String getCor(){
+        return cor;
+    }
+    public void setCor(String cor){
+        this.cor = cor;
+    }
+    
+    
     public static Produto verificarId(int id) throws Exception{
         for(Produto produto : produtos){
             if(produto.id == id){
@@ -34,16 +59,17 @@ public class Produto {
         }
         throw new Exception("Produto não existe");
     }
-    private int getNextId(){
-        int id = 0;
-
-        for(Produto produto : produtos){
-            if(produto.id > id) {
-                id = produto.id;
-            }
-        }
-
-        return id + 1;
+    public static removeProduto(int id) throws Exception{
+        Produto produto = getProduto(id);
+        produtos.remove(produto);
     }
     
+    @Override
+    public String toString(){
+        return "ID: " + id + "\n"
+            + "Descrição: " + descricao + "\n"
+            + "Tamanho: " + tamanho + "\n"
+            + "Cor: " + cor + "\n"
+            + "Fabricante: " + this.idFabricante + "\n";
+    }
 }
