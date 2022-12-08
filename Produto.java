@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Produto {
+public class Produto extends fabricante {
 
     public int id;
     public String descricao;
