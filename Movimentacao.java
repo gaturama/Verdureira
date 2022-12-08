@@ -45,6 +45,12 @@ public class Movimentacao extends Local{
     public void setQuantidade(int quantidade){
         this.quantidade = quantidade;
     }
+    public String getTipo(){
+        return tipo;
+    }
+    public void setTipo(String tipo){
+        this.tipo = tipo
+    }
         
     public static Movimentacao verificarId(int id) throws Exception {
         for (Movimentacao movimentacao: movimentacoes) {
@@ -63,4 +69,8 @@ public class Movimentacao extends Local{
     public String toString(){
         return "ID: " + id + "\n"
             + "Data: " + data + "\n"
+            + "Tipo: " + tipo + "\n"
+            + "Quantidade: " + quantidade + "\n"
+            + "Produto: " + this.getProduto + "\n"
+            + "Local: " + this.getLocal + "\n";
 }
