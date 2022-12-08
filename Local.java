@@ -6,24 +6,43 @@ public class Local {
     public String detalhes;
     public int idproduto;
     public int quantidade;
-    public ArrayList<Produto> produtos;
+    public Produto produto;
 
     public static ArrayList<Local> locais = new ArrayList<Local>();
 
     public Local(
         int id, 
         String detalhes,
-        int idproduto,
-        int quantidade
+        int quantidade,
+        Produto produto
     ){
         this.id = this.getNextId();
         this.detalhes = detalhes;
-        this.idproduto = idproduto;
         this.quantidade = quantidade;
-        this.produtos = new ArrayList<>();
+        this.produtos = produto;
 
         locais.add(this);
     }
+    
+    public int getId(){
+        return id;
+    }
+    public void setId (int id){
+        this.id = id;
+    }
+    public String getDetalhes(){
+        return detalhes;
+    }
+    public void setDetalhes(String detalhes){
+        this.detalhes = detalhes
+    }
+    public int getQuantidade(){
+        return quantidade;
+    }
+    public void setQuantidade(int quantidade){
+        this.quantidade = quantidade;
+    }
+    
      public static Local verificarId(int id) throws Exception{
         for(Local local : locais){
             if(local.id == id) {
@@ -33,15 +52,16 @@ public class Local {
         throw new Exception("Local não existe");
      }   
 
-    private int getNextId() {
-        int id = 0;
-
-         for(Local local : locais){
-            if(local.id > id){
-                id = local.id;
-            }
-         }
-
-         return id + 1;
+     public static void removeLocal (int id) throws Exception{
+         Local local = getLocal(id);
+         locais.remove(local);
+    }
+    
+    @Override
+    public String toString(){
+        return "ID: " + id + "\n"
+            + "Detalhes: " + detalhes + "\n"
+            + "Quantidade: " + quantidade + "\n"
+            + "Produto: " + this.produto + "\n";
     }
 }
