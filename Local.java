@@ -1,10 +1,9 @@
 import java.util.ArrayList;
 
-public class Local {
+public class Local extends Produto{
     
     public int id;
     public String detalhes;
-    public int idproduto;
     public int quantidade;
     public Produto produto;
 
@@ -19,8 +18,7 @@ public class Local {
         this.id = this.getNextId();
         this.detalhes = detalhes;
         this.quantidade = quantidade;
-        this.produtos = produto;
-
+       
         locais.add(this);
     }
     
@@ -62,6 +60,6 @@ public class Local {
         return "ID: " + id + "\n"
             + "Detalhes: " + detalhes + "\n"
             + "Quantidade: " + quantidade + "\n"
-            + "Produto: " + this.produto + "\n";
+            + "Produto: " + this.getProduto + "\n";
     }
 }
