@@ -71,6 +71,6 @@ public class Movimentacao extends Local{
             + "Data: " + data + "\n"
             + "Tipo: " + tipo + "\n"
             + "Quantidade: " + quantidade + "\n"
-            + "Produto: " + this.getProduto + "\n"
-            + "Local: " + this.getLocal + "\n";
+            + "Produto: " + this.idProduto + "\n"
+            + "Local: " + this.idLocal + "\n";
 }
