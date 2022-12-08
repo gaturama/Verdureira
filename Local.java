@@ -60,6 +60,6 @@ public class Local extends Produto{
         return "ID: " + id + "\n"
             + "Detalhes: " + detalhes + "\n"
             + "Quantidade: " + quantidade + "\n"
-            + "Produto: " + this.getProduto + "\n";
+            + "Produto: " + this.idProduto + "\n";
     }
 }
