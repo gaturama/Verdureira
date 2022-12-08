@@ -1,37 +1,51 @@
 import java.util.ArrayList;
 
-public class Movimentacao{
+public class Movimentacao extends Local{
 
     public int id;
     public String data;
-    public String produto;
-    public String local;
     public String tipo;
     public int quantidade;
-    public ArrayList<Produto> produtos;
+    public Produto produto;
+    public Local local;
 
     public static ArrayList<Movimentacao> movimentacoes = new ArrayList<Movimentacao>();
 
     public Movimentacao(
         int id,
         String data,
-        String produto,
-        String local,
         String tipo,
-        String tipo2,
-        int quantidade
+        int quantidade,
+        Produto produto,
+        Local local
     ){
         this.id = this.getNextId();
         this.data = data;
-        this.local = local;
         this.tipo = tipo;
-        this.tipo = tipo2;
         this.quantidade = quantidade;
-        this.produtos = new ArrayList<>();
 
         movimentacoes.add(this);
         
     }
+    public int getId(){
+        return id;
+    }
+    public void setId(int id){
+        this.id = id;
+    }
+    public String getData(){
+        return data;
+    }
+    public void setData(String data){
+        this.data = data;
+    }
+    public int getQuantidade (){
+        return quantidade;
+    }
+    public void setQuantidade(int quantidade){
+        this.quantidade = quantidade;
+    }
+        
     public static Movimentacao verificarId(int id) throws Exception {
         for (Movimentacao movimentacao: movimentacoes) {
              if (movimentacao.id == id) {
@@ -40,14 +54,13 @@ public class Movimentacao{
         }
         throw new Exception("Movimentação não existe");
     }
-    private int getNextId() {
-        int id = 0;
-
-         for(Movimentacao movimentacao : movimentacoes){
-            if(movimentacao.id > id){
-                id = movimentacao.id;
-            }
-         }
-         return id + 1;
+    public static void removeMovimentacao(int id) throws Exception{
+        Movimentacao movimentacao = getMovimentacao(id);
+        movimentacoes.remove(movimentacao);
     }
+    
+    @Override
+    public String toString(){
+        return "ID: " + id + "\n"
+            + "Data: " + data + "\n"
 }
