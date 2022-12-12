@@ -80,7 +80,7 @@ public class Verdureira {
         System.out.println("Listar Fabricante");
         for (Fabricante fabricante : Fabricante.fabricantes){
          System.out.println(fabricante);
-            );
+         
         }
     }
 
