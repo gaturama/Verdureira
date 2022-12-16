@@ -3,15 +3,15 @@ import java.util.ArrayList;
 public class Fabricante {
     
     public int id;
-    public String nome;
-    Produto produto;
+    public String nome; 
+    public int idProduto;
 
     public static ArrayList<Fabricante> fabricantes = new ArrayList<Fabricante>();
 
     public Fabricante(
         int id, 
         String nome,
-        Produto produto
+        int  idProduto
     ) {
         this.id = id;
         this.nome = nome;

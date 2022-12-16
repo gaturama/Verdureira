@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-public class Movimentacao extends Local{
+public class Movimentacao  {
 
     public int id;
     public String data;
     public String tipo;
     public int quantidade;
-    public Produto produto;
-    public Local local;
+    public int idProduto;
+    public int idLocal;
 
     public static ArrayList<Movimentacao> movimentacoes = new ArrayList<Movimentacao>();
 
@@ -16,10 +16,10 @@ public class Movimentacao extends Local{
         String data,
         String tipo,
         int quantidade,
-        Produto produto,
-        Local local
+        int idProduto,
+        int idlocal
     ){
-        this.id = this.getNextId();
+        this.id = id;
         this.data = data;
         this.tipo = tipo;
         this.quantidade = quantidade;
@@ -49,7 +49,7 @@ public class Movimentacao extends Local{
         return tipo;
     }
     public void setTipo(String tipo){
-        this.tipo = tipo
+        this.tipo = tipo;
     }
         
     public static Movimentacao verificarId(int id) throws Exception {
@@ -73,4 +73,5 @@ public class Movimentacao extends Local{
             + "Quantidade: " + quantidade + "\n"
             + "Produto: " + this.idProduto + "\n"
             + "Local: " + this.idLocal + "\n";
+}
 }

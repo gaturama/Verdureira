@@ -1,38 +1,38 @@
 import java.util.ArrayList;
 
-public class Local extends Produto{
+public class Local {
     
-    public int id;
+    public int idLocal;
     public String detalhes;
     public int quantidade;
-    public Produto produto;
+    public int idProduto;
 
     public static ArrayList<Local> locais = new ArrayList<Local>();
 
     public Local(
-        int id, 
+        int idLocal, 
         String detalhes,
         int quantidade,
-        Produto produto
+        int idProduto
     ){
-        this.id = this.getNextId();
+        this.idLocal = idLocal;
         this.detalhes = detalhes;
         this.quantidade = quantidade;
        
         locais.add(this);
     }
     
-    public int getId(){
-        return id;
+    public int getIdLocal(){
+        return idLocal;
     }
-    public void setId (int id){
-        this.id = id;
+    public void setId (int idLocal){
+        this.idLocal = idLocal;
     }
     public String getDetalhes(){
         return detalhes;
     }
     public void setDetalhes(String detalhes){
-        this.detalhes = detalhes
+        this.detalhes = detalhes;
     }
     public int getQuantidade(){
         return quantidade;
@@ -41,23 +41,22 @@ public class Local extends Produto{
         this.quantidade = quantidade;
     }
     
-     public static Local verificarId(int id) throws Exception{
+     public static Local verificarId(int idLocal) throws Exception{
         for(Local local : locais){
-            if(local.id == id) {
+            if(local.idLocal == idLocal) {
                 return local;
             }
         }
         throw new Exception("Local não existe");
      }   
-
-     public static void removeLocal (int id) throws Exception{
-         Local local = getLocal(id);
-         locais.remove(local);
-    }
+     public static void removeLocal(int idLocal) throws Exception{
+        Local local = getLocal(idLocal);
+        locais.remove(local);
+     }
     
     @Override
     public String toString(){
-        return "ID: " + id + "\n"
+        return "ID: " + idLocal + "\n"
             + "Detalhes: " + detalhes + "\n"
             + "Quantidade: " + quantidade + "\n"
             + "Produto: " + this.idProduto + "\n";

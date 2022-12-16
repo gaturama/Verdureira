@@ -97,7 +97,7 @@ public class Verdureira {
         System.out.println("Digite o ID do fabricante: ");
         int idfabricante = scanner.nextInt();
        
-            new Produto(idProduto, descricao, tamanho, cor, idfabricante);
+            new Produto(idProduto, descricao, tamanho, cor, null);
         }catch (Exception e){
             System.out.println("Erro ao cadastrar o Produto!");
         }
@@ -166,7 +166,7 @@ public class Verdureira {
                 System.out.println("Digite o ID do Produto: ");
                 int idProduto = scanner.nextInt();
 
-               new Movimentacao(idMovimentacao, data, produto, local, tipo, tipo, idProduto);
+             new Movimentacao(idMovimentacao, data, tipo, i, idProduto, i);
         }catch (Exception e){
             System.out.println("Erro ao cadastrar a Movimentação");
         }

@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public class Produto extends fabricante {
+public class Produto{
 
     public int id;
     public String descricao;
     public String tamanho;
     public String cor;
-    Fabricante fabricante
+    public int idFabricante;
     
     public static ArrayList<Produto> produtos = new ArrayList<Produto>();
 
@@ -17,7 +17,7 @@ public class Produto extends fabricante {
         String cor, 
         Fabricante fabricante
     ) {
-        this.id = this.getNextId();
+        this.id = id;
         this.descricao = descricao;
         this.tamanho = tamanho;
         this.cor = cor;
